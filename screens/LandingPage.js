@@ -12,7 +12,7 @@ const SignButton = styled.TouchableOpacity`
 `;
 const SocialButton = styled.TouchableOpacity`
   padding: 15px 15px;
-  background: #262626;
+  background: #1A1A1A;
   title-align: center;
   margin: 10px auto;
   border-radius: 50px;
@@ -37,15 +37,14 @@ const ButtonContainer = styled.View`
   flex-direction: row;
 `;
 const MainView = styled.View`
-  flex: 3;
+  flex: 2.5;
   justify-content: center;
   padding:20px;
 `;
 const MainImageView = styled.View`
-  flex: 2;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 100px;
 `;
 const ButtonView = styled.View`
   flex: 1.5;
@@ -62,13 +61,13 @@ const Tagline = styled.Text`
   color: #fff;
   font-weight: 600;
   text-align: right;
-  font-size: 30px;
+  font-size: 19px;
 `;
 
 const Container = styled.View`
   flex:1;
   padding: 10px;
-  background: #262626;
+  background: #1A1A1A;
 `;
 const LandingPage = ({navigation}) => {
 
@@ -79,7 +78,7 @@ const LandingPage = ({navigation}) => {
    <Container>
           <MainImageView>
         <Image
-          style={{ width: 120, height: 120 }}
+          style={{ width: 150, height: 150 }}
           source={require("../icons/logo.jpeg")}
         />
       </MainImageView>
@@ -91,7 +90,7 @@ const LandingPage = ({navigation}) => {
         <SignButton onPress={()=> NavigateHome()}>
           <Title>Sign In</Title>
         </SignButton>
-        <SignButton>
+        <SignButton onPress={()=> NavigateHome()}>
           <Title>Register with email</Title>
         </SignButton>
       </ButtonView>

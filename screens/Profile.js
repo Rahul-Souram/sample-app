@@ -1,24 +1,25 @@
 import React, { useState } from "react";
-import { Button, Image, Text, View, Alert } from "react-native";
+import { Image, View, Alert } from "react-native";
 import { Switch } from "react-native-paper";
 import styled from "styled-components";
+import Footer from "../components/Footer";
 
 const Container = styled.View`
   flex: 1;
   padding: 10px;
-  background: #262626;
+  background: #1a1a1a;
 `;
 
 const ProfilePicture = styled.View`
-flex:1;
-justify-content: center;
-align-items: center;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 `;
 const ProfileWrapper = styled.View`
-flex:2.8;
-justify-content: center;
-align-items: center;
-margin: 80px 0 0;
+  flex: 2.8;
+  justify-content: center;
+  align-items: center;
+  margin: 80px 0 0;
 `;
 const EditButton = styled.TouchableOpacity`
   padding: 10px 35px;
@@ -32,7 +33,7 @@ const InviteButton = styled.TouchableOpacity`
   padding: 10px 15px;
   background: #1c90ff;
   title-align: center;
-  margin: 10px auto;
+  margin: 5px 0 5px 0 ;
   width: 30%;
   border-radius: 50px;
 `;
@@ -47,7 +48,7 @@ const ListContainer = styled.View`
   background: #323232;
   padding: 5px 10px;
   border-radius: 20px;
-  width: 90%;
+  width: 95%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -69,12 +70,6 @@ const Mail = styled.Text`
   font-size: 15px;
   text-decoration: underline;
 `;
-const HomeFooter = styled.View`
-  flex: 1;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-`;
 const ListTitle = styled.Text`
   color: #fff;
   font-size: 16px;
@@ -89,40 +84,42 @@ const ListTitleHead = styled.Text`
 `;
 
 const LogOut = styled.TouchableOpacity`
-  background: #262626;
+  background: #1a1a1a;
   margin: 20px auto;
-  `;
-  const LogoutHead = styled.Text`
+`;
+const LogoutHead = styled.Text`
   text-align: center;
   color: gray;
-  font-weight:600;
+  font-weight: 600;
 `;
 const NotifyContainer = styled.View`
   margin: 20px 0;
   flex: 2;
 `;
-const Profile = () => {
+const Profile = ({ navigation }) => {
   const [switchOn, setSwitchOn] = useState(false);
   return (
     <Container>
-        <ProfileWrapper>
-      <ProfilePicture>
-        <Image
-          style={{ width: 120, height: 120 }}
-          source={require("../icons/profile.jpeg")}
-        />
-      </ProfilePicture>
-      <ProfileDetails>
-        <Title>Erlich Bachman</Title>
-        <Mail
-          onPress={() => Linking.openURL("http://erlichbachman@piedpiper.com")}
-        >
-          erlichbachman@piedpiper.com
-        </Mail>
-        <EditButton>
-          <EditText>Edit Profile</EditText>
-        </EditButton>
-      </ProfileDetails>
+      <ProfileWrapper>
+        <ProfilePicture>
+          <Image
+            style={{ width: 120, height: 120 }}
+            source={require("../icons/profile.jpeg")}
+          />
+        </ProfilePicture>
+        <ProfileDetails>
+          <Title>Erlich Bachman</Title>
+          <Mail
+            onPress={() =>
+              Linking.openURL("http://erlichbachman@piedpiper.com")
+            }
+          >
+            erlichbachman@piedpiper.com
+          </Mail>
+          <EditButton>
+            <EditText>Edit Profile</EditText>
+          </EditButton>
+        </ProfileDetails>
       </ProfileWrapper>
       <NotifyContainer>
         <View>
@@ -140,7 +137,6 @@ const Profile = () => {
         </View>
         <View>
           <ListTitleHead>Invite Link</ListTitleHead>
-
           <ListContainer>
             <ListTitle>Invite people</ListTitle>
             <InviteButton>
@@ -149,25 +145,10 @@ const Profile = () => {
           </ListContainer>
         </View>
       </NotifyContainer>
-
       <LogOut>
         <LogoutHead>Log out</LogoutHead>
       </LogOut>
-      <HomeFooter>
-        <Image
-          style={{ width: 30, height: 30 }}
-          source={require("../icons/home.jpeg")}
-        />
-
-        <Image
-          style={{ width: 50, height: 50 }}
-          source={require("../icons/plus.jpeg")}
-        />
-        <Image
-          style={{ width: 30, height: 30 }}
-          source={require("../icons/paste.jpeg")}
-        />
-      </HomeFooter>
+      <Footer navigation={navigation} />
     </Container>
   );
 };
