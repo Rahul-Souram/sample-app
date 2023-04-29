@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, Image, TouchableOpacity, Switch } from "react-native";
 import styled from "styled-components";
 
 const HomeHeader = styled.View`
@@ -17,7 +17,7 @@ const HomeFooter = styled.View`
 const Container = styled.SafeAreaView`
   flex: 1;
   padding: 10px 20px;
-  background: #000;
+  background: #262626;
 `;
 const Search = styled.TextInput`
   background: #323232;
@@ -63,7 +63,7 @@ const ListTitle = styled.Text`
 `;
 
 const Home = ({ navigation }) => {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
   const handleClick = () => {
     setActive(!active);
   };
@@ -71,10 +71,16 @@ const Home = ({ navigation }) => {
   return (
     <Container>
       <HomeHeader>
-        <Image
-          style={{ width: 30, height: 30 }}
-          source={require("../icons/back.jpeg")}
-        />
+        <TouchableOpacity
+          onPress={() => {
+            () => navigation.navigate("LandingPage");
+          }}
+        >
+          <Image
+            style={{ width: 30, height: 30 }}
+            source={require("../icons/back.jpeg")}
+          />
+        </TouchableOpacity>
         <Text style={styles.title}>Daily progress</Text>
         <ButtonContainer>
           <Image
@@ -101,7 +107,7 @@ const Home = ({ navigation }) => {
             backgroundColor: active ? "#1C90FF" : "black",
           }}
         >
-          <Title style={{ color: active ? "white" : "gray" }}>All</Title>
+          <Title  style={{ color: active ? "white" : "gray" }}>All</Title>
         </TypeButton>
         <TypeButton
           onPress={() => handleClick()}
@@ -109,7 +115,8 @@ const Home = ({ navigation }) => {
             backgroundColor: active ? "black" : "#1C90FF",
           }}
         >
-          <Title style={{ color: active ? "gray" : "white" }}>Favourite</Title>
+          <Title
+          style={{ color: active ? "gray" : "white" }}>Favourite</Title>
         </TypeButton>
       </ButtonContainer>
       <ColumnContainer>
@@ -176,7 +183,7 @@ const Home = ({ navigation }) => {
         />
 
         <Image
-          style={{ width: 40, height: 40 }}
+          style={{ width: 50, height: 50 }}
           source={require("../icons/plus.jpeg")}
         />
         <Image

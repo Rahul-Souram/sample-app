@@ -12,7 +12,7 @@ const SignButton = styled.TouchableOpacity`
 `;
 const SocialButton = styled.TouchableOpacity`
   padding: 15px 15px;
-  background: #000;
+  background: #262626;
   title-align: center;
   margin: 10px auto;
   border-radius: 50px;
@@ -45,7 +45,7 @@ const MainImageView = styled.View`
   flex: 2;
   justify-content: center;
   align-items: center;
-  margin-top:40px;
+  margin-top: 40px;
 `;
 const ButtonView = styled.View`
   flex: 1.5;
@@ -68,7 +68,7 @@ const Tagline = styled.Text`
 const Container = styled.View`
   flex:1;
   padding: 10px;
-  background: #000;
+  background: #262626;
 `;
 const LandingPage = ({navigation}) => {
 
@@ -79,8 +79,8 @@ const LandingPage = ({navigation}) => {
    <Container>
           <MainImageView>
         <Image
-          style={{ width: 100, height: 100 }}
-          source={require("../assets/icon.png")}
+          style={{ width: 120, height: 120 }}
+          source={require("../icons/logo.jpeg")}
         />
       </MainImageView>
       <MainView>
